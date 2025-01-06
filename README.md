@@ -113,10 +113,10 @@ DockerDHCP
      - dhcpd.conf
       
 DockerDNS
-    - example.com.zone
-     - named.conf
-     - named.conf.local
-     - rndc.key
+- example.com.zone
+- named.conf
+- named.conf.local
+- rndc.key
       
 DockerFTP
       vsftpd.conf
