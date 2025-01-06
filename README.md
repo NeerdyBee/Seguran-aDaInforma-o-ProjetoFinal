@@ -176,3 +176,10 @@ A estrutura de rede desenvolvida neste projeto consiste em uma rede privada com 
   - **Endereço IP**: 192.168.56.x (de 0 a 254, exceto o 10, que é reservado para VM1). O IP é atribuído dinamicamente pelo servidor DHCP.
   - **Máscara de Sub-rede**: /24 (255.255.255.0)
 
+# Provisionamento
+
+Os scripts de **provisionamento** de cada VM estão localizados na pasta `provisioners`. 
+
+Cada script executa as configurações e a instalação dos serviços necessários para que cada **VM** e **Container** funcione conforme sua função.
+
+
