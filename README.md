@@ -2,19 +2,19 @@ Contexto: Servidor para hospedar a plataforma web do Patas do Cerrado, um site q
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-1. Planejamento do Hardware
+**1. Planejamento do Hardware**
 Para o contexto de um servidor Web, a máquina que disponibilizará a plataforma deverá deter os seguintes requisitos mínimos:
 
-Processador: Intel® Xeon® E5-2680 v4
-Número de núcleos: 14
-Total de threads: 28
-Frequência max: 3.30 GHz
+- Processador: Intel® Xeon® E5-2680 v4
+- Número de núcleos: 14
+- Total de threads: 28
+- Frequência max: 3.30 GHz
 
-Memória RAM: 2x32 DDR4 3000mhz
+- Memória RAM: 2x32 DDR4 3000mhz
 
-Espaço em Disco: 1 Terabyte SSD
+- Espaço em Disco: 1 Terabyte SSD
 
-Conexão de rede: 500 Gbps 
+- Conexão de rede: 500 Gbps 
 
 Motherboard: X99 MR9S V6
 		Processador: Suporte Intel LGA2011-3
@@ -24,7 +24,7 @@ Motherboard: X99 MR9S V6
 
 
 
-2. Instalação e Configuração do Sistema Operacional
+**2. Instalação e Configuração do Sistema Operacional**
 
 Para nosso S.O (Sistema Operacional) será utilizado o Linux ao qual é de software livre e que disponibiliza diversas distribuições totalmente gratuitas que oferecem segurança e desempenho superiores aos servidores Windows.
 
@@ -59,16 +59,18 @@ Motherboard: X99 MR9S V6
 
 2.3. Processo de Instalação
 Download da Imagem ISO: A primeira etapa consiste em baixar a imagem ISO do Ubuntu Server 22.04 LTS diretamente do site oficial.
+
 Criação de Mídia de Instalação: Utilizamos uma ferramenta como o Rufus para criar um pendrive de inicialização com a imagem ISO.
+
 Instalação do Sistema: Após inicializar o servidor a partir do pendrive, seguimos os passos do instalador do Ubuntu, onde escolhemos as configurações iniciais:
+
 Configuração de rede (definindo IP estático ou DHCP, conforme necessidade).
+
 Particionamento do disco rígido (utilizamos a opção de partição padrão para simplificar a instalação).
+
 Instalação de pacotes essenciais (como OpenSSH, para acesso remoto ao servidor).
+
 Criação de usuário administrador e definição de senha.
-
-
-
-
 
 
 2.4. Configuração de Rede
@@ -96,7 +98,7 @@ Implementamos uma rotina de backups automatizados utilizando o rsync para garant
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-3.0. Como Utilizar o Projeto
+**3.0. Como Utilizar o Projeto**
 
 1. Clone o Repositório: Primeiramente, faça o clone do repositório a partir do GitHub para o seu ambiente local.
 2. Acesse o Diretório do Projeto: No terminal, entre na pasta onde o repositório foi clonado e, em seguida, execute o comando vagrant up para iniciar a criação das máquinas virtuais.
@@ -108,13 +110,13 @@ Estrutura do Repositório
 A organização dos arquivos dentro do projeto é a seguinte:
 
 DockerDHCP
-      dhcpd.conf
+     - dhcpd.conf
       
 DockerDNS
-      example.com.zone
-      named.conf
-      named.conf.local
-      rndc.key
+    - example.com.zone
+     - named.conf
+     - named.conf.local
+     - rndc.key
       
 DockerFTP
       vsftpd.conf
