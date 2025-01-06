@@ -110,33 +110,34 @@ Estrutura do Repositório
 A organização dos arquivos dentro do projeto é a seguinte:
 
 DockerDHCP
-     - dhcpd.conf
-      
-DockerDNS
-- *example.com.zone*
-- named.conf
-- named.conf.local
-- rndc.key
-      
-DockerFTP
-- vsftpd.conf
-      
-DockerNFS
-- teste.txt
-      
-DockerWeb
-- index.html
-      
-Provisionadores
-- dhcp_provision.sh
-- dns_provision.sh
-- ftp_provision.sh
-- nfs_provision.sh
-- web_provision.sh
-- vm2_provision.sh
-      
-Arquivos de Configuração e Documentação
-- Vagrantfile
-- README.md
+  - *dhcpd.conf*
+
+  DockerDNS
+  - *example.com.zone*
+  - *named.conf*
+  - *named.conf.local*
+  - *rndc.key*
+
+  DockerFTP
+  - *vsftpd.conf*
+
+  DockerNFS
+  - *teste.txt*
+
+  DockerWeb
+  - *index.html*
+
+  Provisionadores
+  - *dhcp_provision.sh*
+  - *dns_provision.sh*
+  - *ftp_provision.sh*
+  - *nfs_provision.sh*
+  - *web_provision.sh*
+  - *vm2_provision.sh*
+
+  Arquivos de Configuração e Documentação
+  - *Vagrantfile*
+  - *README.md*
+
 
 
