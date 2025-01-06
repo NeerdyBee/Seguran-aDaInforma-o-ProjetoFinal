@@ -113,30 +113,30 @@ DockerDHCP
      - dhcpd.conf
       
 DockerDNS
-- example.com.zone
+- *example.com.zone*
 - named.conf
 - named.conf.local
 - rndc.key
       
 DockerFTP
-      vsftpd.conf
+- vsftpd.conf
       
 DockerNFS
-      teste.txt
+- teste.txt
       
 DockerWeb
-      index.html
+- index.html
       
 Provisionadores
-      dhcp_provision.sh
-      dns_provision.sh
-      ftp_provision.sh
-      nfs_provision.sh
-      web_provision.sh
-      vm2_provision.sh
+- dhcp_provision.sh
+- dns_provision.sh
+- ftp_provision.sh
+- nfs_provision.sh
+- web_provision.sh
+- vm2_provision.sh
       
 Arquivos de Configuração e Documentação
-      Vagrantfile
-      README.md
+- Vagrantfile
+- README.md
 
 
