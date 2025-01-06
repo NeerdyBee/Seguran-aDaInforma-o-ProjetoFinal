@@ -178,7 +178,7 @@ A estrutura de rede desenvolvida neste projeto consiste em uma rede privada com 
 
 # Provisionamento
 
-Os scripts de **provisionamento** de cada VM estão localizados na pasta `provisioners`. 
+Os scripts de **provisionamento** de cada VM estão localizados na pasta `provisions`. 
 
 Cada script executa as configurações e a instalação dos serviços necessários para que cada **VM** e **Container** funcione conforme sua função.
 
