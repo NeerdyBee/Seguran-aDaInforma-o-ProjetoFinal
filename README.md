@@ -96,7 +96,7 @@ Implementamos uma rotina de backups automatizados utilizando o **rsync** para ga
 4. **Acessando as VMs**: Depois de verificar o status, entre em cada uma das VMs usando o comando `vagrant ssh`, seguido do nome da VM (exemplo: `vagrant ssh servicos-vm`).
 5. **Desligar ou Apagar as VMs**: Quando terminar, desligue as VMs com o comando `vagrant halt`. Se desejar apagá-las, execute o comando `vagrant destroy`.
 
-### Estrutura do Repositório
+### 4.0. Estrutura do Repositório
 
 A organização dos arquivos dentro do projeto é a seguinte:
 
@@ -129,3 +129,50 @@ A organização dos arquivos dentro do projeto é a seguinte:
 - **Arquivos de Configuração e Documentação**
   - *Vagrantfile*
   - *README.md*
+
+# Topologia de Rede
+
+A estrutura de rede desenvolvida neste projeto consiste em uma rede privada com duas máquinas virtuais, configuradas de maneira que uma delas utiliza IP estático e a outra obtém seu IP por DHCP. Além disso, todos os containers da rede recebem IP através da máquina virtual configurada com IP fixo.
+
+## Máquinas Virtuais
+
+### VM1 (Gateway)
+
+- **Hostname**: vm1
+- **Box**: ubuntu/focal64
+- **Memória**: 2048 MB
+- **CPUs**: 2
+- **Configuração de Rede**:
+  - Interface de rede privada com **IP estático**: 192.168.56.10
+  - **Port forwarding**: A porta 80 do guest é redirecionada para a porta 8081 no host (192.168.56.10)
+  - Compartilhamento de pastas entre a máquina hospedeira e a máquina virtual
+  - Provisionamento de serviços diversos para a rede
+
+### VM2 (Cliente)
+
+- **Hostname**: vm2
+- **Box**: ubuntu/focal64
+- **Memória**: 2048 MB
+- **CPUs**: 2
+- **Configuração de Rede**:
+  - Interface de rede configurada para **obter IP via DHCP**
+  - Provisionamento para atualização de pacotes e instalação do pacote **nfs-common**
+
+---
+
+## Descrição da Rede
+
+### Sub-rede da VM1 (Gateway)
+
+- **Interface 1**:
+  - Tipo: Rede Privada
+  - **Endereço IP**: 192.168.56.10
+  - **Máscara de Sub-rede**: /24 (255.255.255.0)
+
+### Sub-rede da VM2 (Cliente)
+
+- **Interface 1**:
+  - Tipo: Rede Privada
+  - **Endereço IP**: 192.168.56.x (de 0 a 254, exceto o 10, que é reservado para VM1). O IP é atribuído dinamicamente pelo servidor DHCP.
+  - **Máscara de Sub-rede**: /24 (255.255.255.0)
+
