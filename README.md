@@ -88,7 +88,7 @@ Implementamos uma rotina de backups automatizados utilizando o **rsync** para ga
 
 ---
 
-## 3.0. Como Utilizar o Projeto
+## 3.0. Como Utilizar o Projeto *(Passo a Passo)*
 
 1. **Clone o Repositório**: Primeiramente, faça o clone do repositório a partir do GitHub para o seu ambiente local.
 2. **Acesse o Diretório do Projeto**: No terminal, entre na pasta onde o repositório foi clonado e, em seguida, execute o comando `vagrant up` para iniciar a criação das máquinas virtuais.
