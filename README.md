@@ -193,3 +193,27 @@ Cada script executa as configurações e a instalação dos serviços necessári
 - Instala ferramentas essenciais para o ambiente de desenvolvimento e execução de contêineres.
 - Configura um contêiner Docker com o Apache HTTP Server, garantindo que o servidor web esteja funcionando e sincronizado com o diretório /VagrantWeb.
 - Realiza uma medida básica de segurança no servidor, desabilitando o login SSH como root, reduzindo o risco de ataques à conta administrativa.
+
+
+
+  ## hardeningProvision.sh
+
+- **Firewall**:
+  - Reforça o firewall com o IPTABLES.
+  - Restringe o tráfego ao mínimo necessário.
+- **Segurança do Docker**:
+  - Aumenta a segurança do contêiner Docker com ajustes no servidor Apache.
+- **Serviços de Rede (Apache e SSH)**:
+  - Configurados pelo XINETD.
+  - Restrições de acesso, horários e limites de recursos.
+
+## webServerProvision.sh
+
+- **Ferramentas Essenciais**:
+  - Instala ferramentas essenciais para o ambiente de desenvolvimento e execução de contêineres.
+- **Configuração do Servidor Web**:
+  - Configura um contêiner Docker com o Apache HTTP Server.
+  - Sincroniza o servidor web com o diretório /VagrantWeb.
+- **Segurança Básica**:
+  - Desabilita o login SSH como root.
+  - Reduz o risco de ataques à conta administrativa.
