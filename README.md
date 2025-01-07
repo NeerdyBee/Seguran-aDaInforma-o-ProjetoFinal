@@ -7,9 +7,9 @@ Servidor para hospedar a plataforma web do *Patas do Cerrado*, um site que será
 Para o contexto de um servidor Web, a máquina que disponibilizará a plataforma deverá deter os seguintes requisitos mínimos:
 
 - **Processador**: Intel® Xeon® E5-2680 v4
-- **Número de núcleos**: 14
-- **Total de threads**: 28
-- **Frequência max**: 3.30 GHz
+  - **Número de núcleos**: 14
+  - **Total de threads**: 28
+  - **Frequência max**: 3.30 GHz
 
 - **Memória RAM**: 2x32 DDR4 3000mhz
 
