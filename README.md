@@ -182,15 +182,14 @@ Os scripts de **provisionamento** de cada VM estão localizados na pasta `provis
 
 Cada script executa as configurações e a instalação dos serviços necessários para que cada **VM** e **Container** funcione conforme sua função.
 
-- **hardeningProvision.sh**:
+## hardeningProvision.sh
 
- - Reforça o firewall com o IPTABLES, restringindo o tráfego ao mínimo necessário.
- - Aumenta a segurança do contêiner Docker com ajustes no servidor Apache.
- - Configura serviços de rede (Apache e SSH) gerenciados pelo XINETD, com restrições de acesso, horários e limites de recursos.
+- Reforça o firewall com o IPTABLES, restringindo o tráfego ao mínimo necessário.
+- Aumenta a segurança do contêiner Docker com ajustes no servidor Apache.
+- Configura serviços de rede (Apache e SSH) gerenciados pelo XINETD, com restrições de acesso, horários e limites de recursos.
 
-- **webServerProvision.sh**:
- 
- - Instala ferramentas essenciais para o ambiente de desenvolvimento e execução de contêineres.
- - Configura um contêiner Docker com o Apache HTTP Server, garantindo que o servidor web esteja funcionando e sincronizado com o diretório /VagrantWeb.
- - Realiza uma medida básica de segurança no servidor, desabilitando o login SSH como root, reduzindo o risco de ataques à conta administrativa.
+## webServerProvision.sh
 
+- Instala ferramentas essenciais para o ambiente de desenvolvimento e execução de contêineres.
+- Configura um contêiner Docker com o Apache HTTP Server, garantindo que o servidor web esteja funcionando e sincronizado com o diretório /VagrantWeb.
+- Realiza uma medida básica de segurança no servidor, desabilitando o login SSH como root, reduzindo o risco de ataques à conta administrativa.
