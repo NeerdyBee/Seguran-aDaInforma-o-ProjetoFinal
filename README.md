@@ -40,9 +40,9 @@ A versão **LTS (Long Term Support)** foi escolhida devido à sua estabilidade e
 Antes de iniciar a instalação, foram definidos os seguintes requisitos de hardware para garantir o bom funcionamento do servidor, os quais foram mencionados e escolhidos no Planejamento de Hardware.
 
 - **Processador**: Intel® Xeon® E5-2680 v4
-- **Número de núcleos**: 14
-- **Total de threads**: 28
-- **Frequência max**: 3.30 GHz
+  - **Número de núcleos**: 14
+  - **Total de threads**: 28
+  - **Frequência max**: 3.30 GHz
 
 - **Memória RAM**: 2x32 DDR4 3000mhz
 
