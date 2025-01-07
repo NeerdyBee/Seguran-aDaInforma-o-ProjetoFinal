@@ -182,4 +182,10 @@ Os scripts de **provisionamento** de cada VM estão localizados na pasta `provis
 
 Cada script executa as configurações e a instalação dos serviços necessários para que cada **VM** e **Container** funcione conforme sua função.
 
+## hardeningProvision.sh 
+
+1. Reforça o firewall com o IPTABLES, restringindo o tráfego ao mínimo necessário.
+2. Aumenta a segurança do contêiner Docker com ajustes no servidor Apache.
+3. Configura serviços de rede (Apache e SSH) gerenciados pelo XINETD, com restrições de acesso, horários e limites de recursos.
+
 
