@@ -4,7 +4,7 @@ Servidor para hospedar a plataforma web do *Patas do Cerrado*, um site que será
 ---
 
 ## 1. Planejamento do Hardware
-Para o contexto de um servidor Web, a máquina que disponibilizará a plataforma deverá deter os seguintes requisitos mínimos:
+A máquina que disponibilizará a plataforma deverá deter os seguintes requisitos mínimos:
 
 - **Processador**: Intel® Xeon® E5-2680 v4
   - **Número de núcleos**: 14
