@@ -11,11 +11,11 @@ Vagrant.configure("2") do |config|
         vb.cpus = 2
       end
       vm1Server.vm.network "public_network", type: "dhcp", ip: "192.168.56.10", bridge: "enp2s0"
-      vm1Server.vm.synced_folder "./DockerWeb", "/VagrantWeb"
+      vm1Server.vm.synced_folder "./WebServerFiles", "/VagrantWeb"
       vm1Server.vm.network "forwarded_port", guest: 80, host: 8080
       vm1Server.vm.network "forwarded_port", guest: 22, host: 2222
-      vm1Server.vm.provision "shell", path: "provisioners/web_provision.sh"
-      vm1Server.vm.provision "shell", path: "provisioners/hardening.sh"
+      vm1Server.vm.provision "shell", path: "provisions/web_provision.sh"
+      vm1Server.vm.provision "shell", path: "provisions/hardening.sh"
     end
     #Teste
     config.vm.define "vm2" do |vm2Teste|
@@ -26,6 +26,6 @@ Vagrant.configure("2") do |config|
         vb.cpus = 2
       end
         vm2Teste.vm.network "public_network", type: "dhcp", ip: "192.168.56.12", bridge: "enp2s0"
-        vm2Teste.vm.provision "shell", path: "provisioners/vm2_provision.sh"
+        vm2Teste.vm.provision "shell", path: "provisions/VM2Provisions.sh"
     end
   end 
