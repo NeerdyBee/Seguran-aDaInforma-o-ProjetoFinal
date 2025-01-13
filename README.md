@@ -56,7 +56,7 @@ Antes de iniciar a instalação, foram definidos os seguintes requisitos de hard
   - **Capacidade máxima suportada**: 256GB  
   - **Slot placas gráficas**: 3*PCI Express x16
 
-### 2.3. Processo de Instalação do Servidor
+### 2.3. Processo de Instalação do Sistema Operacional
 
 1. **Download da Imagem ISO**: A primeira etapa consiste em baixar a imagem ISO do **Ubuntu Server 22.04 LTS** diretamente do [site oficial](https://ubuntu.com/download/server).
 2. **Criação de Mídia de Instalação**: Utilizamos uma ferramenta como o **Rufus** para criar um pendrive de inicialização com a imagem ISO.
