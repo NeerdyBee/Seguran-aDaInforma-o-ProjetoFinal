@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
         vb.memory = 2048
         vb.cpus = 2
       end
-        vm2Teste.vm.network "public_network", type: "dhcp", ip: "192.168.56.12", bridge: "enp2s0"
+        vm2Teste.vm.network "public_network", type: "dhcp", bridge: "enp2s0"
         vm2Teste.vm.provision "shell", path: "provisions/VM2Provisions.sh"
     end
   end 
