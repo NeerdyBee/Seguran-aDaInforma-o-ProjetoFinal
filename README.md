@@ -100,35 +100,16 @@ Implementamos uma rotina de backups automatizados utilizando o **rsync** para ga
 
 Organização dos arquivos e scripts necessários para configurar serviços como DHCP, DNS, FTP, e NFS. Cada pasta e script desempenha uma função específica no funcionamento do servidor.
 
-- **DockerDHCP**
-  - *dhcpd.conf*
-
-- **DockerDNS**
-  - *example.com.zone*
-  - *named.conf*
-  - *named.conf.local*
-  - *rndc.key*
-
-- **DockerFTP**
-  - *vsftpd.conf*
-
-- **DockerNFS**
-  - *teste.txt*
-
-- **DockerWeb**
+- **WebServerFiles**
+  - *httpd.conf
   - *index.html*
 
 - **Provisionadores**
-  - *dhcp_provision.sh*
-  - *dns_provision.sh*
-  - *ftp_provision.sh*
-  - *nfs_provision.sh*
-  - *web_provision.sh*
-  - *vm2_provision.sh*
-
-- **Arquivos de Configuração e Documentação**
-  - *Vagrantfile*
-  - *README.md*
+  - *Provisions.txt*
+  - *hardeningProvision.sg*
+  - *webServerProvision.sh*
+  
+- **Vagrantfile**
 
 # Topologia de Rede
 
