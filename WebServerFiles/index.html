@@ -1,565 +1,461 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patas do Cerrado</title>
-    <link rel="icon" href="imagens/paw.svg" type="image/svg+xml">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .content {
-            flex: 1;
-        }
-
-        .navbar {
-            background: rgba(0, 0, 0, 0.7);
-            border-bottom: 1px solid #000000;
-            padding: 10px 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            width: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar-brand img {
-            height: 40px;
-        }
-
-        .navbar-brand i {
-            font-size: 1.75rem;
-            margin-right: 10px;
-            color: #ff7f00;
-        }
-
-        .navbar-nav .nav-link {
-            color: #ffffff;
-            margin-right: 20px;
-            font-size: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #ff7f00;
-        }
-
-        .navbar-nav .btn-primary {
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 1rem;
-            background-color: #ff7f00;
-            border: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .navbar-nav .btn-primary:hover {
-            background-color: #cc6600;
-        }
-
-        .hero {
-            background-image: url('imagens/dog.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 150px 20px;
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            overflow: hidden;
-        }
-
-        .hero h1,
-        .hero p,
-        .hero .btn-primary {
-            animation: slideInRight 1s forwards;
-            opacity: 0;
-        }
-
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            max-width: 400px;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            max-width: 400px;
-        }
-
-        .hero .btn-primary {
-            padding: 10px 30px;
-            font-size: 1.2rem;
-            border-radius: 25px;
-            background-color: rgba(255, 127, 0, 0.8);
-            border: none;
-            max-width: 400px;
-        }
-
-        .hero .btn-primary:hover {
-            background-color: rgba(255, 127, 0, 1);
-        }
-
-        .highlight-icons {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .highlight-icons i {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: #ff7f00;
-            transition: transform 0.3s ease;
-        }
-
-        .highlight-icons i:hover {
-            transform: scale(1.2);
-        }
-
-        .highlight-icons h3 {
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        .highlight-icons p {
-            color: #6c757d;
-        }
-
-        .pet-card {
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .pet-card:hover {
-            transform: scale(1.05);
-        }
-
-        .pet-card img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .pet-card .card-body {
-            padding: 20px;
-        }
-
-        .card-title {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .btn-primary {
-            background-color: #ff7f00;
-            border: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background-color: #cc6600;
-        }
-
-        .success-stories .card {
-            margin-bottom: 20px;
-            border-radius: 15px;
-            transition: transform 0.3s ease;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .success-stories .card:hover {
-            transform: scale(1.05);
-        }
-
-        .footer {
-            background-color: #343a40;
-            color: white;
-            position: relative;
-            width: 100%;
-        }
-
-        .footer a {
-            color: #ff7f00;
-        }
-
-        .footer a:hover {
-            text-decoration: none;
-        }
-
-        .about-us {
-            padding: 60px 0;
-            background-color: #ffffff;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
-        }
-
-        .about-us h2 {
-            margin-bottom: 30px;
-            font-weight: bold;
-        }
-
-        .about-us .col-md-6 {
-            margin-bottom: 30px;
-        }
-
-        .about-us .values ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .about-us .values ul li {
-            padding-left: 25px;
-            position: relative;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .about-us .values ul li:before {
-            content: '\f058';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            color: #ff7f00;
-        }
-
-        .contact-form .btn-primary {
-            border-radius: 25px;
-            padding: 10px 30px;
-            font-size: 1.2rem;
-            background-color: #ff7f00;
-            border: none;
-        }
-
-        .contact-form .btn-primary:hover {
-            background-color: #cc6600;
-        }
-
-        .highlights {
-            position: absolute;
-            bottom: 50px;
-            left: 10%;
-            transform: translateX(-50%);
-            width: 80%;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-around;
-            animation: slideUp 1s forwards;
-            opacity: 0;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(100%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .highlights .highlight-icons {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .highlights h3,
-        .highlights p {
-            color: white;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .hero .btn-primary {
-                padding: 8px 20px;
-                font-size: 1rem;
-            }
-
-            .highlights {
-                bottom: -30px;
-                width: 90%;
-                padding: 15px;
-                flex-direction: column;
-            }
-
-            .highlight-icons h3 {
-                font-size: 1.2rem;
-            }
-
-            .highlight-icons p {
-                font-size: 0.9rem;
-            }
-
-            .hero h1,
-            .hero p,
-            .hero .btn-primary {
-                max-width: 100%;
-                margin-left: 0;
-                text-align: center;
-            }
-
-            .highlights .highlight-icons {
-                flex-direction: column;
-            }
-        }
-
-        .hero-text {
-            text-align: -webkit-right;
-        }
-    </style>
+    <title>Trabalho de HTML</title>
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="#"><i class="fas fa-paw"></i> Patas do Cerrado</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#adopt">Adote</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#success-stories">Histórias de Sucesso</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contato</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-primary" href="login.html">Login/Registrar</a>
+        <h1>
+            Trabalho Programação WEB 1
+        </h1>
+    </header>
+    <hr>
+    <article>
+        <h2>
+            Diretrizes de acessibilidade de interfaces digitais para pessoas com Transtorno do Espectro Autista: uma revisão integrativa de literatura
+        </h2>
+        <section>
+            <h3>
+                Autores
+            </h3>
+            <ul>
+                <li>
+                    <dl>
+                        <dt>
+                            Andiara Cristina de Souza
+                        </dt>
+                        <dd>
+                            <p>
+                                Doutoranda na Universidade Federal de São Carlos, São Carlos, SP, Brasil
+                            </p>
+                            <p>
+                                E-mail: <a href="mailto:ancrisou@gmail.com">ancrisou@gmail.com</a>
+                            </p>
+                            <p>
+                                ORCID: <a href="https://orcid.org/0000-0003-0160-6488">https://orcid.org/0000-0003-0160-6488</a>
+                            </p>
+                        </dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>
+                            Priscila Benitez
+                        </dt>
+                        <dd>
+                            <p>
+                                Professora doutora da Universidade Federal do ABC, Santo André, SP, Brasil
+                            </p>
+                            <p>
+                                E-mail: <a href="mailto:priscila.benitez@ufabc.edu.br">priscila.benitez@ufabc.edu.br</a>
+                            </p>
+                            <p>
+                                ORCID: <a href="https://orcid.org/0000-0003-3501-7606">https://orcid.org/0000-0003-3501-7606</a>
+                            </p>
+                        </dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>
+                            João dos Santos Carmo
+                        </dt>
+                        <dd>
+                            <p>
+                                Professor doutor da Universidade Federal de São Carlos, São Carlos, SP, Brasil
+                            </p>
+                            <p>
+                                E-mail: <a href="mailto:jcarmo@ufscar.br">jcarmo@ufscar.br</a>
+                            </p>
+                            <p>
+                                ORCID: <a href="https://orcid.org/0000-0003-3913-7023">https://orcid.org/0000-0003-3913-7023</a>
+                            </p>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3>
+                Objetivo
+            </h3>
+            <p>
+                O trabalho teve por objetivo mapear na literatura pesquisas empíricas que avaliaram diretrizes para acessibilidade digital, envolvendo pessoas com <dfn title="Transtorno do Espectro Autista">TEA</dfn>. Também esperou-se, a partir da pesquisa, listar os itens validados empiricamente como essenciais para assegurar a acessibilidade digital para todos os tipos de usuários.
+            </p>
+        </section>
+        <section>
+            <h3>
+                Método
+            </h3>
+            <ul>
+                <li>
+                    <p>
+                        O estudo foi desenvolvido a partir de uma <strong>Revisão Integrativa (<dfn title="Revisão Integrativa">RI</dfn>)</strong> da literatura, pautada no protocolo <strong><dfn title="Preferred Reporting Items for Systematic Reviews and Meta-Analyses">PRISMA</dfn></strong>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A <dfn title="Revisão Integrativa">RI</dfn> consiste em um método cujo objetivo é agregar resultados de pesquisas de uma forma sistematizada sobre determinado tema
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        O <dfn title="Preferred Reporting Items for Systematic Reviews and Meta-Analyses">PRISMA</dfn> apresenta uma lista de conferência com recomendações para revisões sitemáticas e meta-análises
+                    </p>
+                </li>
+            </ul>
+            <h4>
+                Passo a passo
+            </h4>
+            <ol>
+                <li>
+                    <p>
+                        Identificação do tema e seleção da hipótese: o tema do estudo versou sobre acessibilidade digital e <dfn title="Transtorno do Espectro Autista">TEA</dfn> e esperou-se, com isso, identificar elementos necessários para a garantia da acessibilidade, via desenho universal
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Estabelecimento da estratégia de pesquisa: foram propostos logo após os critérios de inclusão e exclusão para seleção dos estudos
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Definição e coleta de dados, em três bancos (Scopus, Web of Science e Google Scholar)
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Análise dos dados coletados, que foi estruturada em dois eixos:
+                    </p>
+                    <blockquote cite="http://dx.doi.org/10.5902/1984686X62649">
+                        <em>O primeiro sobre as principais características dos estudos em relação ao ano de publicação, revista, país e participantes. A segunda análise foi qualitativa sobre as diretrizes utilizadas, os principais resultados e os itens mensurados como fundamentais para garantia da acessibilidade digital das pessoas com <dfn title="Transtorno do Espectro Autista">TEA</dfn>, de acordo com os estudos recuperados com a busca.</em>
+                    </blockquote>
+                </li>
+                <li>
+                    <p>
+                        Interpretação dos dados com base nos objetivos e na literatura consultada
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Apresentação dos resultados, com base na análise realizada
+                    </p>
+                </li>
+            </ol>
+            <img src="images/artigo1-1.jpeg" alt="Fluxograma da seleção dos artigos elaborado a partir das recomendações PRISMA" title="Fluxograma da seleção dos artigos elaborado a partir das recomendações PRISMA">
+        </section>
+        <section>
+            <h3>
+                Resultados
+            </h3>
+            <p>
+                Ao final do procedimento de coleta de dados, restaram <strong>sete artigos</strong> para integrar o <em>corpus</em> da revisão. Entre os artigos incluídos, <strong>um artigo foi publicado em 2017, três em 2018, um em 2019 e dois em 2020</strong>. Com relação aos participantes/público-alvo das pesquisas, três dos trabalhos tiveram como participantes pessoas adultas diagnosticadas com <dfn title="Transtorno do Espectro Autista">TEA</dfn> leve, enquanto dois dos outros estudos foram feitos com adultos com <dfn title="Transtorno do Espectro Autista">TEA</dfn>. Um estudo envolveu participantes cuidadores responsáveis pelo suporte a pessoas com <dfn title="Transtorno do Espectro Autista">TEA</dfn> entre 3 e 12 anos e profissionais da tecnologia da informação e, ainda, outro estudo com crianças com <dfn title="Transtorno do Espectro Autista">TEA</dfn>. Contudo, <strong>tais pesquisas não envolveram crianças, adolescentes e adultos com <dfn title="Transtorno do Espectro Autista">TEA</dfn> moderado ou severo</strong>. Em relação aos objetivos das pesquisas, <strong>cinco delas buscaram avaliar a interação das pessoas com <dfn title="Transtorno do Espectro Autista">TEA</dfn> nos ambientes virtuais <em>(webpages)</em></strong>, a fim de verificar possíveis diferenciações entre os caminhos utilizados pelas pessoas com e sem <dfn title="Transtorno do Espectro Autista">TEA</dfn> na busca por informações na web, de modo a testar os fundamentos que direcionam as diretrizes de acessibilidade internacionais.
+            </p>
+            <blockquote cite="http://dx.doi.org/10.5902/1984686X62649">
+                <em>Ainda sobre os participantes, é fundamental ressaltar que os estudos conduzidos com adultos com <dfn title="Transtorno do Espectro Autista">TEA</dfn> leve realizaram análises de acessibilidade a partir de estudos empíricos experimentais, utilizando a técnica de rastreamento ocular e presença de grupo controle com pessoas sem <dfn title="Transtorno do Espectro Autista">TEA</dfn>. Os dados obtidos foram analisados estatisticamente [...] Esses resultados são importantes para orientação de <em>design</em> digital na elaboração de páginas mais amigáveis para todas as pessoas.</em>
+            </blockquote>
+        </section>
+        <section>
+            <h3>
+                Discussão
+            </h3>
+            <p>
+                Os principais resultados identificados como itens promissores na construção e/ou adequação de recursos digitais foram:
+            </p>
+            <ol>
+                <li>
+                    <blockquote cite="http://dx.doi.org/10.5902/1984686X62649">
+                        em <em>site</em> existe a necessidade de subdivisão de tarefas e adaptação e em apps é preciso deixar mais previsíveis as tarefas, com tarefas personalizadas mais facilmente programáveis e adaptação da linguagem
+                    </blockquote>
+                </li>
+                <li>
+                    <blockquote cite="http://dx.doi.org/10.5902/1984686X62649">
+                        <em>sites</em> com poucos <em>layouts</em>                            
+                    </blockquote>
+                </li>
+                <li>
+                    <blockquote cite="http://dx.doi.org/10.5902/1984686X62649">
+                            uso de ícones e imagens concomitantes ao texto, de maneira complementar                            
+                    </blockquote>
+                </li>
+                <li>
+                    <blockquote cite="http://dx.doi.org/10.5902/1984686X62649">
+                        vocabulário visual e textual, engajamento e customização                            
+                    </blockquote>
+                </li>
+            </ol>
+            <blockquote cite="http://dx.doi.org/10.5902/1984686X62649">
+                <p>
+                    <em>A partir dos estudos analisados, constatou-se que existe uma baixa produção (n=7) de estudos baseados em evidências empíricas promovidas por estudos experimentais, no que diz respeito à acessibilidade de interfaces para pessoas com <dfn title="Transtorno do Espectro Autista">TEA</dfn>, especialmente quando se trata de crianças.</em>
+                </p>
+            </blockquote>
+        </section>
+        <section>
+            <h3>
+                Considerações finais
+            </h3>
+            <blockquote cite="http://dx.doi.org/10.5902/1984686X62649">
+                <p>
+                    <em>Esperou-se, com este estudo, traçar uma lista de itens validados empiricamente como fundamentais para garantia da acessibilidade digital para todas as pessoas, sobretudo para pessoas com <dfn title="Transtorno do Espectro Autista">TEA</dfn>. Atualmente, os princípios de design associados ao design de interação para os transtornos do neurodesenvolvimento ainda são generalistas e carecem de maiores testes com públicos diferenciados, como crianças e adolescentes.</em>
+                </p>
+                <p>
+                    <em>[...]</em>
+                </p>
+                <p>
+                    <em>Pesquisas experimentais analisando as funcionalidades das diretrizes de acessibilidade para pessoas com <dfn title="Transtorno do Espectro Autista">TEA</dfn> são necessárias diante da carência de estudos existentes na literatura. Além do mais, os poucos estudos empíricos experimentais existentes não podem ser generalizados para todos os níveis de acometimento do <dfn title="Transtorno do Espectro Autista">TEA</dfn>, razão pela qual devem ser conduzidas outras pesquisas, a fim de fornecer mais evidências empíricas sobre a efetividade destas diretrizes.</em>
+                </p>
+            </blockquote>
+            <br>
+            <p><strong>Link do artigo:</strong> <a href="http://dx.doi.org/10.5902/1984686X62649">http://dx.doi.org/10.5902/1984686X62649</a></p>
+        </section>
+    </article>
+    <hr>
+    <article>
+        <h2>
+            O desafio das tecnologias de inteligência artificial na Educação
+        </h2>
+        <section>
+            <h3>Autores</h3>
+            <ul>
+                <li>
+                    <dl>
+                        <dt>
+                            Artur Parreira
+                        </dt>
+                        <dd>
+                            Universidade Santa Úrsula, Rio de Janeiro, RJ, Brasil. Universidade Lusófona de Humanidades e Tecnologias, Lisboa, Portugal.
+                        </dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>
+                            Lúcia Lehmann
+                        </dt>
+                        <dd>
+                            Universidade Federal Fluminense, Niterói, RJ, Brasil.
+                        </dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>
+                            Mariana Oliveira
+                        </dt>
+                        <dd>
+                            Universidade Federal Fluminense, Niterói, RJ, Brasil.
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3>Objetivo</h3>
+            <p>O objetivo do artigo é analisar como os professores percebem e avaliam o impacto das inovações tecnológicas de primeira e segunda geração, incluindo sistemas de inteligência artificial, em sua profissão. A pesquisa visa entender a visão dos professores sobre essas inovações, explorar os efeitos que eles identificam e investigar as soluções que eles propõem para lidar com os desafios resultantes. Utilizando questionários, a metodologia coleta dados para cada objetivo, contribuindo para um projeto mais amplo sobre o impacto das tecnologias de segunda geração no trabalho. O artigo concentra-se nos resultados relacionados à atividade docente.</p>
+        </section>
+        <section>
+            <h3>Método</h3>
+            <p>Trata-se de uma pesquisa de campo por questionário, que obedeceu aos seguintes procedimentos metodológicos:</p>
+            <ol>
+                <li>Elaboração de um questionário sobre o tema, de modo a obter respostas cuja análise permitisse atingir os objetivos da pesquisa.</li>
+                <li>Pré-teste do questionário, realizado com respondentes de características demográficas em comum com a amostra prevista, que não tiveram dificuldade em entender e responder às questões.</li>
+                <li>Definição de uma amostra de professores de IES e de programas preparatórios para ingresso na universidade.</li>
+                <li>Análise estatística dos dados e sua interpretação, à luz dos conceitos expressos no enquadramento teórico.</li>
+            </ol>
+        </section>
+        <section>
+            <h3>Passo a Passo</h3>
+                <h4>Elaboração do Questionário:</h4>
+                <ul>
+                    <li>Baseado em afirmações da literatura, revistas, sites, artigos científicos relacionados ao tema.</li>
+                    <li>Conformidade com as normas de elaboração de questionários <strong>(BOZAL, 2006; MORALES, 2000; SULBARÁN, 2009).</strong></li>
+                    <li>Dividido em cinco áreas: dados pessoais, inovações de primeira geração (tecnologias digitais de apoio ao docente), inovações de segunda geração (impacto da IA no trabalho docente).</li>
+                </ul>
+                <h4>Coleta de Dados (Realizada no Início do 2º Semestre de 2019):</h4>
+                <ul>
+                    <li>Envio pelo Google Forms:
+                        <ul>
+                            <li>Criação de um questionário online usando o Google Forms.</li>
+                            <li>Geração de um link de acesso ao questionário.</li>
+                            <li>Distribuição do link para os participantes.</li>
+                        </ul>
                     </li>
                 </ul>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-text">
-            <h1>Encontre seu novo melhor amigo!</h1>
-            <p>Nossa missão é encontrar lares amorosos para cada pet.</p>
-            <a href="#adopt" class="btn btn-lg btn-primary">Ver Pets para Adoção</a>
-            <div class="highlights">
-                <div class="row">
-                    <div class="col-md-4 highlight-icons">
-                        <i class="fas fa-heart"></i>
-                        <h3>Amor</h3>
-                        <p>Cuidamos dos pets com muito amor.</p>
-                    </div>
-                    <div class="col-md-4 highlight-icons">
-                        <i class="fas fa-paw"></i>
-                        <h3>Cuidado</h3>
-                        <p>Nossa prioridade é o bem-estar dos pets.</p>
-                    </div>
-                    <div class="col-md-4 highlight-icons">
-                        <i class="fas fa-home"></i>
-                        <h3>Resgate</h3>
-                        <p>Resgatamos e cuidamos de pets em necessidade.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="content">
-        <!-- About Us -->
-        <section id="about" class="about-us bg-light">
-            <div class="container">
-                <h2 class="text-center">Sobre Nós</h2>
-                <p class="text-center">Nossa missão é encontrar lares amorosos para cada pet.</p>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h3>Nossa História</h3>
-                        <p>Fundada com amor e dedicação, a Patas do Cerrado tem a missão de proporcionar um lar acolhedor para todos os pets. Nossa equipe é composta por amantes de animais que se dedicam diariamente para cuidar e encontrar lares para nossos amigos peludos.</p>
-                    </div>
-                    <div class="col-md-6 values">
-                        <h3>Valores</h3>
-                        <ul>
-                            <li>Amor</li>
-                            <li>Cuidado</li>
-                            <li>Respeito</li>
-                            <li>Compromisso</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                <h4>Variação na Escolha da Plataforma de Resposta:</h4>
+                <p>Observação interessante sobre as preferências dos participantes:</p>
+                <ul>
+                    <li>Professores mais jovens optaram por responder através do Google Forms.</li>
+                    <li>Respondentes mais idosos preferiram responder por e-mail ou em papel.</li>
+                </ul>
         </section>
-
-        <!-- Adopt a Pet -->
-        <section id="adopt" class="py-5">
-            <div class="container">
-                <h2 class="text-center">Adote um Pet</h2>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card pet-card mb-4">
-                            <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Pet 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Rex</h5>
-                                <p class="card-text">2 anos, macho, brincalhão e amigável.</p>
-                                <a href="adopt.html?pet=rex" class="btn btn-primary">Mais Informações</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card pet-card mb-4">
-                            <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Pet 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Luna</h5>
-                                <p class="card-text">1 ano, fêmea, amorosa e carinhosa.</p>
-                                <a href="adopt.html?pet=luna" class="btn btn-primary">Mais Informações</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card pet-card mb-4">
-                            <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Pet 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Bobby</h5>
-                                <p class="card-text">3 anos, macho, ativo e leal.</p>
-                                <a href="adopt.html?pet=bobby" class="btn btn-primary">Mais Informações</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section>
+            <h3>Resultados</h3>
+                <h4>Percepção das Tecnologias de Primeira Geração:</h4>
+                <p>Nesta seção, os dados coletados abordam duas dimensões: conhecimento e familiaridade dos professores com essas tecnologias, além da representação do impacto delas nos professores e nos alunos. Os resultados revelam:</p>
+                <ul>
+                    <li>Os professores estão bastante familiarizados com o uso de bancos de dados, redes sociais e aplicativos.</li>
+                    <li>No entanto, o ensino remoto (importante devido à Covid-19) apresenta um nível de conforto menor.</li>
+                    <li>O conhecimento dos professores em relação à automação industrial é mais limitado.</li>
+                    <li>Professores mostram menos familiaridade com as técnicas que sustentam a Educação a Distância (EaD) em ambiente virtual.</li>
+                </ul>
+                <img src="images/artigo2-1.jpg" alt="Tabela 1" title="Familiaridade dos professores com as tecnologias de primeira geração">
+                <h4>Representação das Tecnologias de Informação e seu Impacto:</h4>
+                <p>Nesta seção, a percepção dos professores em relação às tecnologias de informação é explorada. Os resultados mostram que:</p>
+                <ul>
+                    <li>As tecnologias são percebidas como ferramentas úteis para a atualização do professor e a melhoria do trabalho (médias de 8,1 e 7,89, respectivamente).</li>
+                    <li>São consideradas naturais e acessíveis, representando um desafio moderado e com baixo nível de ameaça.</li>
+                    <li>A ideia de que essas tecnologias levam a um estudo superficial recebe pouca adesão por parte dos professores.</li>
+                </ul>
+                <img src="images/artigo2-2.jpg" alt="Tabela 2" title="Conhecimento das tecnologias de primeira geração: Diferenças por gênero e por IES">
         </section>
-
-        <!-- Success Stories -->
-        <section id="success-stories" class="py-5 bg-light">
-            <div class="container">
-                <h2 class="text-center">Histórias de Sucesso</h2>
-                <p class="text-center">Veja algumas das histórias de adoção bem-sucedidas que nos inspiram.</p>
-                <div class="row success-stories">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Story 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Max e sua nova família</h5>
-                                <p class="card-text">Max foi adotado por uma família amorosa e agora vive feliz com seus novos donos.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Story 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Bella encontrou seu lar</h5>
-                                <p class="card-text">Bella agora tem um lar cheio de amor e carinho, graças à Patas do Cerrado.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Story 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Rocky e sua jornada</h5>
-                                <p class="card-text">Rocky foi resgatado e agora vive feliz com sua nova família.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section>
+            <h3>Considerações Finais</h3>
+            <p>Os dados da pesquisa permitem algumas reflexões conclusivas:</p>
+            <ul>
+                <li>Os inquiridos têm, em geral, uma atitude positiva perante as inovações de primeira geração: consideram que tais tecnologias são desenvolvedoras das competências humanas e não apenas ameaças a que se deve resistir de qualquer maneira. É uma atitude que pode sustentar esforços para controlar os efeitos negativos associados ao uso extenso dessas tecnologias, desenvolvendo, para isso, as competências transversais assinaladas acima: escuta ativa, estilo de interação resolutivo, liderança, atitude de pesquisador que ensina e não de mero professor expositivo. </li>
+                <li>Revelam alguma dificuldade em perceber a diferença entre as tecnologias de primeira e de segunda geração, ao avaliarem o impacto dessas últimas sobre o seu trabalho, apesar de reconhecerem que elas vão alterar bastante o perfil de competências da profissão; mas têm consciência de que a área de sua ação futura será, principalmente, o desenvolvimento das competências interpessoal e conceitual-estratégica <strong>(KATZ, 1974)</strong>, enquanto competências próprias da construção do sujeito humano.</li>
+                <li>Percebem que a flexibilidade e a capacidade de adaptação constituem o cerne da resposta aos desafios que vão enfrentar no próximo futuro; e que as competências transversais são a base dessa flexibilidade e dessa capacidade adaptativa. Alinham-se, assim, com os estudos sobre equipes mistas de humanos e de sistemas de IA.</li>
+            </ul>
+            <br>
+            <p>
+                <strong>Link do artigo:</strong>
+                <a href="https://doi.org/10.1590/S0104-40362020002803115">https://doi.org/10.1590/S0104-40362020002803115</a>
+            </p>
         </section>
-
-        <!-- Contact -->
-        <section id="contact" class="py-5">
-            <div class="container">
-                <h2 class="text-center">Contato</h2>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Nome</label>
-                        <input type="text" class="form-control" id="name" placeholder="Seu Nome">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Seu Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mensagem</label>
-                        <textarea class="form-control" id="message" rows="3" placeholder="Sua Mensagem"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </form>
-            </div>
+    </article>
+    <hr>
+    <article>
+        <h2>
+            RPG AÇÃO V REAÇÃO: Um sistema acessível para oficinas pedagógicas
+        </h2>
+        <section>
+            <h3>
+                Autores
+            </h3>
+            <ul>
+                <li>
+                    <dl>
+                        <dt>
+                            Júlia da Silva Gularte
+                        </dt>
+                        <dd>
+                            Acadêmica do curso de Licenciatura em Pedagogia na Uniasselvi (IERGS), Porto Alegre, RS, Brasil
+                        </dd>
+                        <dd> 
+                            E-mail: <a href="mailto:juliasgularte@gmail.com">juliasgularte@gmail.com</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>
+                            Wilson de Oliveira da Costa
+                        </dt>
+                        <dd>
+                            Acadêmico do curso de Graduação em Sistemas para a Internet na Faculdade QI Brasil (FAQI), Gravataí, RS, Brasil
+                        </dd>
+                        <dd> 
+                            E-mail: <a href="mailto:wocosta94@gmail.com">wocosta94@gmail.com</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>
+                            Giana Lagranha de Souza
+                        </dt>
+                        <dd>
+                            Especialista em Docência no ensino profissional e superior e Liderança e formação de sucessores, Bibliotecária na Faculdade QI Brasil(FAQI), Gravataí, RS, Brasil
+                        </dd>
+                        <dd> 
+                            E-mail: <a href="mailto:gianasouza81@gmail.com">gianasouza81@gmail.com</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>
+                            Silvio Cesar Viegas
+                        </dt>
+                        <dd>
+                            Professor Coordenador do curso de Sistemas para Internet da Faculdade QI Brasil (FAQI), Gravataí, RS, Brasil
+                        </dd>
+                        <dd> 
+                            E-mail: <a href="mailto:silvio.viegas@qi.edu.br">silvio.viegas@qi.edu.br</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>
+                            Paulo Tadeu Campos Lopes
+                        </dt>
+                        <dd>
+                            Professor do Programade Pós-graduação em Ensino de Ciências e Matemática da Universidade Luterana do Brasil (ULBRA)
+                        </dd>
+                        <dd> 
+                            E-mail: <a href="mailto:pclopes@ulbra.br">pclopes@ulbra.br</a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
         </section>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer py-4 mt-auto">
-        <div class="container text-center">
-            <p>&copy; 2024 Patas do Cerrado. Todos os direitos reservados.</p>
-            <div class="social-icons">
-                <a href="#" class="text-white mr-3"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-white mr-3"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
+        <section>
+            <h3>Objetivo</h3>
+            <p>O artigo possui como objetivo apresentar o Sistema de <dfn title="Role-Playing Game">RPG</dfn> de mesa brasileiro chamado <strong>RPG Ação V Reação</strong>(RPGAVR) e como ele pode ser aplicado no âmbito pedagógico através de oficinas, buscando além de prover experiências lúdicas, como também beneficiar seus jogadores em seus desenvolvimentos cognitivos, sociais e psicológicos. Ademais, o Sistema foi desenvolvido de forma que seja simplificado o bastante e com acessibilidade necessária para garantir uma maior chance para diversas pessoas poderem jogar.</p>
+            <img src="images/artigo3-1.png" alt="Foto da oficina de RPG presencial com o Ação V Reação na QITEC" title="Foto da oficina de RPG presencial com o Ação V Reação na QITEC" width="800">
+        </section>
+        <section>
+            <h3>Método</h3>
+            <ul>
+                <li>
+                    <p>Para a efetuação do artigo, foram feitas pesquisas bibliográficas para basear e auxiliar na compreensão dos benefícios do tema;</p>
+                </li>
+                <li>
+                    <p>Para estudar sua aplicação, o Sistema de <dfn title="Role-Playing Game">RPG</dfn> foi aplicado primeiramente de forma remota e também presencialmente no evento <em>QITEC - Feira de ideias da Faculdade QI</em> no ano de 2022;</p>
+                </li>
+                <li>
+                    <p>Para auxiliar seus jogadores, foram elaborados livros que contextualizavam as regras e cenários do RPG Ação V Reação;</p>
+                </li>
+                <li>
+                    <p>Ademais, também foi desenvolvido um aplicativo chamado <em>RPGAVR</em> que concede acesso gratuito aos conteúdos do Sistema com suporte de idioma português e inglês e funcionalidades de acessibilidade.</p>
+                </li>
+            </ul>
+            <img src="images/artigo3-2.png" alt="Aplicativo do sistema RPG Ação V Reação na PlayStore" title="Aplicativo do sistema RPG Ação V Reação na PlayStore" width="500">
+        </section>
+        <section>
+            <h3>Resultados</h3>
+            <p>Com a realização das oficinas se foi possível identificar <strong>aprimoramentos e auxílios no desenvolvimento psicológico e social de seus jogadores</strong>. Além disso, também foram notados <strong>benefícios atribuidos ao trabalho e interação em grupo, raciocínio lógico, memorização e pensamento crítico</strong>. Por fim, é importante salientar como a aplicação de atividades de RPG de mesa com o Sistema também possuem a possibilidade de <strong>proporcionar aprendizado cultural e de conteúdos históricos</strong> devido a liberdade que tida em sua narrativa, permitindo assim que haja uma contribuição educativa para todos os participantes.</p>
+        </section>
+        <section>
+            <h3>Considerações Finais</h3>
+            <p>Portanto, conclui-se que o Sistema de RPG Ação V Reação demonstrou ser um sistema eficaz com sua simplicidade e acessibilidade que tornam-o acessível para diversos públicos distintos, provendo vários benefícios psicológicos, sociais e para o aprendizado de seus jogadores, juntamente com a atividade lúdica de sua aplicação em grupo.</p>
+            <br>
+            <p><strong>Link do artigo:</strong> <a href="https://refaqi.faqi.edu.br/index.php/refaqi/article/view/21">https://refaqi.faqi.edu.br/index.php/refaqi/article/view/21</a></p>
+        </section>
+    </article>
+    <hr>
+    <footer>
+        <h3>
+            Estudantes:
+        </h3>
+        <ul>
+            <li>
+                Gabriella Tavares Peixoto
+            </li>
+            <li>
+                Luis Gabriel
+            </li>
+            <li>
+                Ramiro Vieira de Moura
+            </li>
+            <li>
+                Samuel Felipe de Oliveira Costa
+            </li>
+        </ul>
     </footer>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
 </body>
-
 </html>
