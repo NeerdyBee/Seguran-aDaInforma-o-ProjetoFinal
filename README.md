@@ -25,7 +25,7 @@ A máquina que disponibilizará a plataforma deverá deter os seguintes requisit
 
 ---
 
-## 2. Instalação e Configuração do Sistema Operacional
+## 2. Instalação e Configuração do Sistema Operacional e Servidor
 
 Para o S.O (Sistema Operacional) das máquina será utilizado o **Linux**, ao qual é de software livre e disponibiliza diversas distribuições totalmente gratuitas que oferecem segurança e desempenho superiores aos servidores Windows.
 
