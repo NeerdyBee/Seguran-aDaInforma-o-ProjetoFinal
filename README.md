@@ -98,7 +98,7 @@ Implementamos uma rotina de backups automatizados utilizando o **rsync** para ga
 
 ### 4.0. Estrutura do Repositório
 
-A organização dos arquivos dentro do projeto é a seguinte:
+Organização dos arquivos e scripts necessários para configurar serviços como DHCP, DNS, FTP, e NFS. Cada pasta e script desempenha uma função específica no funcionamento do servidor.
 
 - **DockerDHCP**
   - *dhcpd.conf*
