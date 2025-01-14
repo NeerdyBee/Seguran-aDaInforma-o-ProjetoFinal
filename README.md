@@ -1,5 +1,5 @@
 # Contexto
-Servidor para hospedar a plataforma web do *Patas do Cerrado*, um site que será utilizado inicialmente na região do Estado de Goiás.
+Este seguinte repositório dará orientações para o planejamento de um servidor WEB seguro e apresentará como simular e criar um servidor WEB por meio das ferramentas Vagrante e povisionamentos que garantam seu Hardening.
 
 ---
 
