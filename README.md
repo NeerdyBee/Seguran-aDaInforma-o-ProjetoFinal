@@ -182,3 +182,9 @@ Os scripts de **provisionamento** de cada VM estão localizados na pasta `provis
 - **Segurança Básica**:
   - Desabilita o login SSH como root.
   - Reduz o risco de ataques à conta administrativa.
+
+# Referências
+
+- [Hardening de IPTABLES](https://phoenixnap.com/kb/iptables-linux)
+- [Hardening de Apache](https://www.oreilly.com/library/view/apache-the-definitive/0596002033/re08.html)
+- [Configurações do XINETD](https://www.comparitech.com/net-admin/xinetd-primer/)
